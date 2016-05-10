@@ -1,4 +1,4 @@
-package lecture02;
+package net.teachingprogramming.lecture02;
 
 /**
  * ズンドコキヨシ
