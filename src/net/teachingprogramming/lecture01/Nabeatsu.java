@@ -1,4 +1,4 @@
-package lecture01;
+package net.teachingprogramming.lecture01;
 
 /**
  * 3の倍数でアホになる（ベースとなるプログラム）
