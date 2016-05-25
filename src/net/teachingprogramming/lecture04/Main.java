@@ -12,5 +12,8 @@ public class Main {
 
         Person person3 = new Person(); // 引数なしのコンストラクタは用意されてないのでエラーになる。
 
+        Teacher teacher1 = new Teacher("たなか", 70.0, 1.75);
+        teacher1.selfIntroduction();
+        teacher1.bmiHantei();
     }
 }
