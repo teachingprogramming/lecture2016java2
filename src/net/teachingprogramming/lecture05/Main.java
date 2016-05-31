@@ -48,7 +48,7 @@ public class Main {
         personSet.add(new Person("じろう", 75.0, 1.74));
         personSet.add(new Person("たろう", 70.0, 1.70));
         for (Person p : personSet) {
-            p.selfIntroduction(); // 「たろう」のselfIntroductionメソッドが2回実行される。
+            p.selfIntroduction(); // 「じろう」は1回、「たろう」は2回、selfIntroductionメソッドが実行される。
         }
 
         // HashMapの例
