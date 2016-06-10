@@ -12,6 +12,22 @@ public class Main {
             String input = scanner.next();
             if (input.equals("q")) {
                 break;
+            } else if (input.equals("i")) {
+                System.out.print("英語: ");
+                String english = scanner.next();
+                System.out.print("日本語: ");
+                String japanese = scanner.next();
+                jisho.put(english, japanese);
+                System.out.println("登録しました。");
+            } else if (input.equals("s")) {
+                System.out.print("英語: ");
+                String english = scanner.next();
+                String japanese = jisho.get(english);
+                if (japanese == null) {
+                    System.out.println("登録されていません。");
+                } else {
+                    System.out.println("日本語: " + japanese);
+                }
             } else {
                 System.out.println("コマンドが違います。");
             }

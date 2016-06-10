@@ -1,12 +1,28 @@
 package net.teachingprogramming.lecture07.p2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<String> wordList = generateWordList();
         // 回答ここから
-        System.out.println(wordList.size());
+        System.out.println(wordList.size()); // 単語の総数を表示
+        int youCount = 0; // 「you」の数をカウントする変数
+        int fiveCount = 0; // 5文字以上の長さの単語をカウントする変数
+        for (String word : wordList) {
+            if (word.equals("you")) {
+                youCount++;
+            }
+            if (word.length() >= 5) {
+                fiveCount++;
+            }
+        }
+        System.out.println(youCount); //「you」の数を表示
+        System.out.println(fiveCount); // 5文字以上の長さの単語の数を表示
+        Collections.sort(wordList); // wordListをソート
+        String last = wordList.get(wordList.size() - 1); // 最後の単語を取り出す
+        System.out.println(last); // ソートした最後にくる単語を表示
         // 回答ここまで
     }
 
