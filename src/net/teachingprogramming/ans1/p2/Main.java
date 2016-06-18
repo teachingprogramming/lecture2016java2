@@ -21,8 +21,8 @@ public class Main {
             }
         }
         System.out.println(sum);
-        System.out.println(max);
         System.out.println(div3);
+        System.out.println(max);
         // 回答ここまで
     }
 
