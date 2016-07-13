@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>フォームのサンプル</title>
+</head>
+<body>
+<h1>フォームのサンプル: チェックボックス</h1>
+<p>
+    コントローラは<a href="https://github.com/teachingprogramming/lecture2016java2/blob/master/webapp/src/main/java/net/teachingprogramming/webapp/FormSampleController.java">FormSampleController.java</a>
+</p>
+
+<h2>基本的な使い方</h2>
+<p>
+    <form action="checkboxOut" method="get">
+        checkbox1: <input type="checkbox" name="checkbox1" />
+        checkbox2: <input type="checkbox" name="checkbox2" checked="checked" />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>checkを動的に設定する</h2>
+<p>
+    <form action="checkboxOut" method="get">
+        checkbox1: <input type="checkbox" name="checkbox1" th:checked="${def1}" />
+        checkbox2: <input type="checkbox" name="checkbox2" th:checked="${def2}" />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+</body>
+</html>

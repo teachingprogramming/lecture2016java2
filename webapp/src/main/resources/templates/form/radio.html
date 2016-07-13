@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>フォームのサンプル</title>
+</head>
+<body>
+<h1>フォームのサンプル: ラジオボタン</h1>
+<p>
+    コントローラは<a href="https://github.com/teachingprogramming/lecture2016java2/blob/master/webapp/src/main/java/net/teachingprogramming/webapp/FormSampleController.java">FormSampleController.java</a>
+</p>
+
+<h2>基本的な使い方</h2>
+<p>
+    <form action="radioOut" method="get">
+        radio1: <input type="radio" name="radio" value="radio1" checked="checked" />
+        radio2: <input type="radio" name="radio" value="radio2" />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>checkを動的に設定する</h2>
+<form action="radioOut" method="get">
+    radio1: <input type="radio" name="radio" value="radio1" th:checked="${def.equals('radio1')}" />
+    radio2: <input type="radio" name="radio" value="radio2" th:checked="${def.equals('radio2')}" />
+    <button type="submit">送信</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>フォームのサンプル</title>
+</head>
+<body>
+<h1>フォームのサンプル: セレクトボックス</h1>
+<p>
+    コントローラは<a href="https://github.com/teachingprogramming/lecture2016java2/blob/master/webapp/src/main/java/net/teachingprogramming/webapp/FormSampleController.java">FormSampleController.java</a>
+</p>
+
+<h2>基本的な使い方</h2>
+<p>
+    <form action="selectOut" method="get">
+        <select name="select">
+            <option th:value="select1" selected="selected">select1</option>
+            <option th:value="select2">select2</option>
+            <option th:value="select3">select3</option>
+        </select>
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>リストを選択肢にする</h2>
+<p>
+    <form action="selectOut" method="get">
+        <select name="select">
+            <option th:each="name:${nameList}" th:value="${name}" th:text="${name}">name</option>
+        </select>
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>マップを選択肢にする</h2>
+<p>
+<form action="selectOut" method="get">
+    <select name="select">
+        <option th:each="key:${nameMap.keySet()}" th:value="${key}" th:text="${nameMap.get(key)}">name</option>
+    </select>
+    <button type="submit">送信</button>
+</form>
+</p>
+
+
+
+</body>
+</html>

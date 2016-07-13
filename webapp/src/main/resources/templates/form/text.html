@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>フォームのサンプル</title>
+</head>
+<body>
+<h1>フォームのサンプル: テキスト</h1>
+<p>
+    コントローラは<a href="https://github.com/teachingprogramming/lecture2016java2/blob/master/webapp/src/main/java/net/teachingprogramming/webapp/FormSampleController.java">FormSampleController.java</a>
+</p>
+
+<h2>基本的な使い方</h2>
+<p>
+    <form action="textOut" method="get">
+        テキストフィールド: <input name="text1" /><br />
+        テキストエリア: <textarea name="text2" cols="50" rows="5"></textarea><br />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>postを使った場合</h2>
+<p>
+    <form action="textOut" method="post">
+        テキストフィールド: <input name="text1" /><br />
+        テキストエリア: <textarea name="text2" cols="50" rows="5"></textarea><br />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+<h2>デフォルト値</h2>
+<p>
+    静的に設定する
+    <form action="textOut" method="post">
+        テキストフィールド: <input name="text1" value="あああ"/><br />
+        テキストエリア: <textarea name="text2" cols="50" rows="5">いいい</textarea><br />
+        <button type="submit">送信</button>
+    </form>
+</p>
+<p>
+    動的に設定する
+    <form action="textOut" method="post">
+        テキストフィールド: <input name="text1" th:value="${def1}"/><br />
+        テキストエリア: <textarea name="text2" cols="50" rows="5" th:text="${def2}">いいい</textarea><br />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+</body>
+</html>

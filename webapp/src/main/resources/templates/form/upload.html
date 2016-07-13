@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>フォームのサンプル</title>
+</head>
+<body>
+<h1>フォームのサンプル: ファイルアップロード</h1>
+<p>
+    コントローラは<a href="https://github.com/teachingprogramming/lecture2016java2/blob/master/webapp/src/main/java/net/teachingprogramming/webapp/FormSampleController.java">FormSampleController.java</a>
+</p>
+
+<h2>基本的な使い方</h2>
+<p>
+    <form action="uploadOut" method="post" enctype="multipart/form-data">
+        upload <input type="file" name="file" />
+        <button type="submit">送信</button>
+    </form>
+</p>
+
+
+</body>
+</html>
