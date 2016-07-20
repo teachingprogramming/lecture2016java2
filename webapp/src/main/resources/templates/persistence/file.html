@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>file</title>
+</head>
+<body>
+
+<form action="file" method="post">
+    <input type="text" name="line" />
+    <button type="submit">送信</button>
+</form>
+<ol>
+    <li th:each="line:${lineList}" th:text="${line}">ここに行の内容</li>
+</ol>
+</body>
+</html>
