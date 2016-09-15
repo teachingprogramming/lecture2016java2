@@ -1,5 +1,7 @@
 package net.teachingprogramming.webapp;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -70,6 +72,46 @@ public class PersistenceSampleController {
         memo.setDate(new Date());
         memoRepository.save(memo);
         return "redirect://localhost:18080/persistence/memo";
+    }
+
+    @RequestMapping(value = "/phone", method = RequestMethod.GET)
+    String phoneGet(ModelMap modelMap) {
+        List<Phone> phoneList = loadPhoneList();
+        modelMap.addAttribute("phoneList", phoneList);
+        return "persistence/phone";
+    }
+
+    @RequestMapping(value = "/phone", method = RequestMethod.POST)
+    String phonePost(ModelMap modelMap, @RequestParam("name") String name, @RequestParam("number") String number) {
+        Phone phone = new Phone(name, number);
+        List<Phone> phoneList = loadPhoneList();
+        phoneList.add(phone);
+        savePhoneList(phoneList);
+        return "redirect://localhost:18080/persistence/phone";
+    }
+
+    private List<Phone> loadPhoneList() {
+        File jsonFile = new File("phoneList.json");
+        if (jsonFile.exists()) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                List<Phone> phoneList = objectMapper.readValue(jsonFile, new TypeReference<List<Phone>>() {});
+                return phoneList;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return new ArrayList<>();
+    }
+
+    private void savePhoneList(List<Phone> phoneList) {
+        File jsonFile = new File("phoneList.json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writeValue(jsonFile, phoneList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
